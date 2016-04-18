@@ -1,0 +1,10 @@
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.pdb
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csprojResolveAssemblyReference.cache
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Properties.Resources.resources
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.exe
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Form1.resources
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
