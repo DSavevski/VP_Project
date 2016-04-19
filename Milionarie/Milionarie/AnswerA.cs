@@ -77,6 +77,9 @@ namespace Milionarie
     {
         public string chosenAnswer { get; set; }
 
-
+        public ChosenAnswer(string ca)
+        {
+            chosenAnswer = ca;
+        }
     }
 }

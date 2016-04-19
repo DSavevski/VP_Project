@@ -6,5 +6,7 @@ c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\
 c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
 c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.exe
 c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Form1.resources
 c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.FinalAnswer.resources
+c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.GameOver.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Initial.resources

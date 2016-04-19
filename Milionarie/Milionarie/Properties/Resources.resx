@@ -121,17 +121,26 @@
   <data name="SelectedVsNot - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SelectedVsNot - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MilionaireBlack3aaaa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack3aaaa.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Milionaire11" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Milionaire11.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Milionaire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Milionaire1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="SelectedVsNot" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\SelectedVsNot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Screenshot_1 - Copy (2)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot_1 - Copy (2).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="playaGAIN2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playaGAIN2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YESNO22" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YESNO22.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Milionaire12" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Milionaire12.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,17 +148,29 @@
   <data name="Screenshot_1 - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot_1 - Copy.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="playAgain" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playAgain.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MilionaireBlack2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MilionaireBlack" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="YESNO2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YESNO2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="who_wants_to_be_millionaire_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\who_wants_to_be_millionaire_logo.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Milionaire1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Milionaire1.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MilionaireBlack4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YESNO23" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YESNO23.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MilionaireBlack3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack3.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,13 +184,19 @@
   <data name="Screenshot_1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Screenshot_1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="SelectedVsNot" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SelectedVsNot.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Who-Wants-to-be-a-millionaire-electracade" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Who-Wants-to-be-a-millionaire-electracade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="GameOver" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\GameOver.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MilionaireBlack32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MilionaireBlack32.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Who-Wants-to-be-a-millionaire-electracade" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Who-Wants-to-be-a-millionaire-electracade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="YESNO21" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YESNO21.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="YESNO2 - Copy" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\YESNO2 - Copy.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

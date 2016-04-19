@@ -16,10 +16,12 @@ namespace Milionarie
         public CorrectAnswer correctAnswer { get; set; }
         public ChosenAnswer chosenAnswer { get; set; }
 
+        public static int[] votes = new int[4];
+
         public bool passed;
 
         public static Random rand = new Random();
-
+       
         public Question(string qt,string aa,string ab,string ac,string ad,string ca)
         {
             questionText = qt;
@@ -82,7 +84,83 @@ namespace Milionarie
         }
 
 
+        public void audience() {
+            votes[0] = 0;
+            votes[1] = 0;
+            votes[2] = 0;
+            votes[3] = 0;
+            for (int i = 0; i < 100; i++) {
+                int broj = rand.Next(1, 101);
+                if (answerA.NUMBER == correctAnswer.NUMBER)
+                {
+                    if (broj < 50)
+                        votes[correctAnswer.NUMBER - 1]++;
+                    else if (broj < 72 && correctAnswer.NUMBER != answerB.NUMBER)
+                        votes[answerB.NUMBER - 1]++;
+                    else if (broj < 90 && correctAnswer.NUMBER != answerC.NUMBER)
+                        votes[answerC.NUMBER - 1]++;
+                    else if (broj <= 100 && correctAnswer.NUMBER != answerD.NUMBER)
+                        votes[answerD.NUMBER - 1]++;
+                }
+                if (answerB.NUMBER == correctAnswer.NUMBER)
+                {
+                    if (broj < 50)
+                        votes[correctAnswer.NUMBER - 1]++;
+                    else if (broj < 72 && correctAnswer.NUMBER != answerC.NUMBER)
+                        votes[answerB.NUMBER - 1]++;
+                    else if (broj < 90 && correctAnswer.NUMBER != answerA.NUMBER)
+                        votes[answerC.NUMBER - 1]++;
+                    else if (broj <= 100 && correctAnswer.NUMBER != answerD.NUMBER)
+                        votes[answerD.NUMBER - 1]++;
+                }
+                if (answerC.NUMBER == correctAnswer.NUMBER)
+                {
+                    if (broj < 50)
+                        votes[correctAnswer.NUMBER - 1]++;
+                    else if (broj < 72 && correctAnswer.NUMBER != answerB.NUMBER)
+                        votes[answerB.NUMBER - 1]++;
+                    else if (broj < 90 && correctAnswer.NUMBER != answerC.NUMBER)
+                        votes[answerC.NUMBER - 1]++;
+                    else if (broj <= 100 && correctAnswer.NUMBER != answerA.NUMBER)
+                        votes[answerD.NUMBER - 1]++;
+                }
+                if (answerD.NUMBER == correctAnswer.NUMBER)
+                {
+                    if (broj < 50)
+                        votes[correctAnswer.NUMBER - 1]++;
+                    else if (broj < 72 && correctAnswer.NUMBER != answerA.NUMBER)
+                        votes[answerB.NUMBER - 1]++;
+                    else if (broj < 90 && correctAnswer.NUMBER != answerC.NUMBER)
+                        votes[answerC.NUMBER - 1]++;
+                    else if (broj <= 100 && correctAnswer.NUMBER != answerB.NUMBER)
+                        votes[answerD.NUMBER - 1]++;
+                }
 
 
+            }
+
+
+
+
+        }
+
+        public String callingFriend()
+        {
+
+            int randFriend = rand.Next(1, 31);
+            if (randFriend < 17)
+                return String.Format("I am sure it is {0}", correctAnswer.correctAnswer);
+            else if (randFriend < 26)
+            {
+                return String.Format("I think it is {0}", correctAnswer.correctAnswer);
+
+            }
+            else {
+
+                return String.Format(" Sorry, I don't know :( ");
+
+            }
+
+        }
     }
 }
