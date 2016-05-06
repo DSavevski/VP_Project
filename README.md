@@ -76,7 +76,7 @@
         /// </summary>
         List<Question> hardlist;
 ```
-Моделот е класата Questions, во која се чуваат следниве податоци, кадешто AnswerA,AnswerB се класи за репрезентација на одговорот
+Во класата Questions, во која се чуваат следниве податоци, кадешто AnswerA,AnswerB се класи за репрезентација на одговорот
 ```c#
  public string questionText { get; set; }
         public AnswerA answerA { get; set; }
@@ -163,3 +163,25 @@
 
         }
 ```
+При имплементацијата на џокерот повикај пријател можно е да се генерираат 3 вредности.Сигурен одговор, најверојатно точен и постои можност пријателот да него знае одговорот. Тоа е имплементирано на следниот начин:
+```c#
+ public string callingFriend()
+        {
+
+            int randFriend = rand.Next(1, 31);
+            if (randFriend < 17)
+                return string.Format("Сигурен сум дека е {0}", correctAnswer.correctAnswer);
+            else if (randFriend < 26)
+            {
+                return string.Format("Мислам дека е {0}", correctAnswer.correctAnswer);
+
+            }
+            else {
+
+                return string.Format("Извини, но не знам :( ");
+
+            }
+
+        }
+```
+Аналогно на методот повикај пријател, слично е имплементиран и џокерот повикај публика со таа разлика што се симулираат повеќе рандом броеви.
