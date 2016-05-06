@@ -1,12 +1,44 @@
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.pdb
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csprojResolveAssemblyReference.cache
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Properties.Resources.resources
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.exe
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.FinalAnswer.resources
-c:\users\dragan\documents\visual studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.GameOver.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.exe
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\bin\Debug\Milionarie.pdb
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csprojResolveAssemblyReference.cache
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.FinalAnswer.resources
 C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Initial.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.GameOver.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.Properties.Resources.resources
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.exe
+C:\Users\Dragan\Documents\Visual Studio 2015\Projects\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.exe
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.csprojResolveAssemblyReference.cache
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.FinalAnswer.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.Initial.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.GameOver.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.LogIn.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.Properties.Resources.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.Settings.resources
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\bin\Debug\Milionarie.exe
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\bin\Debug\Milionarie.pdb
+C:\Users\dell\Downloads\Milionarie (2)\Milionarie\Milionarie\obj\Debug\Milionarie.DodadiPrasanje.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.exe
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\bin\Debug\Milionarie.exe
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\bin\Debug\Milionarie.pdb
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.csprojResolveAssemblyReference.cache
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.DodadiPrasanje.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.FinalAnswer.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.Initial.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.Game.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.GameOver.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.LogIn.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.Properties.Resources.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.Settings.resources
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Interop.WMPLib.dll
+C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.ResolveComReference.cache

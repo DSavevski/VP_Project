@@ -9,12 +9,14 @@ namespace Milionarie
     public class AnswerA
     {
         public int NUMBER = 1;
+        public bool hideFor5050;
 
         public string answerA { get; set; }
 
         public AnswerA(string a)
         {
             answerA = a;
+            hideFor5050 = false;
         }
         
 
@@ -23,12 +25,14 @@ namespace Milionarie
     public class AnswerB
     {
         public int NUMBER = 2;
+        public bool hideFor5050;
 
         public string answerB { get; set; }
 
         public AnswerB(string b)
         {
             answerB = b;
+            hideFor5050 = false;
         }
 
     }
@@ -37,19 +41,21 @@ namespace Milionarie
     {
 
         public int NUMBER = 3;
+        public bool hideFor5050;
 
         public string answerC { get; set; }
 
         public AnswerC(string c)
         {
             answerC = c;
+            hideFor5050 = false;
         }
 
     }
 
     public class AnswerD
     {
-
+        public bool hideFor5050;
         public int NUMBER = 4;
 
         public string answerD { get; set; }
@@ -57,6 +63,7 @@ namespace Milionarie
         public AnswerD(string d)
         {
             answerD = d;
+            hideFor5050 = false;
         }
 
     }

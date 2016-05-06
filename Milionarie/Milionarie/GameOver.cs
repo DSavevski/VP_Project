@@ -12,9 +12,22 @@ namespace Milionarie
 {
     public partial class GameOver : Form
     {
+        private const int CP_NOCLOSE_BUTTON = 0x200;
+
         public GameOver()
         {
             InitializeComponent();
+        }
+
+        
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams myCp = base.CreateParams;
+                myCp.ClassStyle = myCp.ClassStyle | CP_NOCLOSE_BUTTON;
+                return myCp;
+            }
         }
 
         public GameOver(string money)
@@ -42,6 +55,7 @@ namespace Milionarie
         private void button1_Click(object sender, EventArgs e)
         {
             Application.Restart();
+            
         }
 
         private void button2_Click(object sender, EventArgs e)

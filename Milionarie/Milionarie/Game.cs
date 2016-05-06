@@ -12,158 +12,195 @@ using System.Windows.Forms;
 
 namespace Milionarie
 {
+    enum AnswerSongMode
+    {
+        Wrong,
+        Right,
+        Select
+    }
     public partial class Game : Form
     {
-        public static int JOCKER5050_1;
-        public static int JOCKER5050_2;
-
-        //na koe prasanje se naogjame
+        
+        /// <summary>
+        /// Shows which question we are currently on
+        /// </summary>
         public static int CURRENT_Q = 1;
-
-
+        /// <summary>
+        /// Background music player
+        /// </summary>
+        public WMPLib.WindowsMediaPlayer bg = new WMPLib.WindowsMediaPlayer();
+        /// <summary>
+        /// answer music
+        /// </summary>
+        public WMPLib.WindowsMediaPlayer answer = new WMPLib.WindowsMediaPlayer();
+        public WMPLib.WindowsMediaPlayer audFriend = new WMPLib.WindowsMediaPlayer();
+        /// <summary>
+        /// list of easy questions
+        /// </summary>
         List<Question> easylist;
+        /// <summary>
+        /// medium list questions
+        /// </summary>
         List<Question> mediumlist;
+        /// <summary>
+        /// hard list questions
+        /// </summary>
         List<Question> hardlist;
         
-        //za trepkanje zeleno pri tocen odgvoor
-        bool blink = true;
-        //counter za trepkanje vo timer
-        int counter;
-        //koe prasanje da trepka
-        int whichBlink;
-        //ako tocen odgovorot da se premine na sledno prasanje
-        bool nextQ = true;
+       bool blink = true; //za trepkanje zeleno pri tocen odgvoor
+       int counter; //counter za trepkanje vo timer
+       int whichBlink; //koe prasanje da trepka
+       bool nextQ = true;//ako tocen odgovorot da se premine na sledno prasanje
+       public static int JOCKER5050_1;
+       public static int JOCKER5050_2;
+       int idx;
+       int counterTick;
 
-        int idx;
-        int counterTick;
-        Question q;
+        /// <summary>
+        /// Current questions, the question currently displayed
+        /// </summary>
+        Question currentQuestion;
+
         public Game(List<Question> l1,List<Question>l2,List<Question> l3)
         {
             InitializeComponent();
             richTextBox1.Hide();
             chart1.Hide();
+            audFriend.settings.setMode("loop", true);
 
+            playBackgroundSong(1);
 
             easylist = new List<Question>(l1);
             mediumlist = new List<Question>(l2);
             hardlist = new List<Question>(l3);
-           /*
-            Question q11 = new Question("Proizvod od pcela ?", "Otok", "Med", "Mleko", "Sirenje","Med");
-            Question q12 = new Question("PRVI 5-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q13 = new Question("PRVI 5-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q14 = new Question("PRVI 5-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q15 = new Question("PRVI 5-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q21 = new Question("PRVI 10-1", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q22 = new Question("PRVI 10-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q23 = new Question("PRVI 10-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q24 = new Question("PRVI 10-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q25 = new Question("PRVI 10-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q31 = new Question("PRVI 15-1", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q32 = new Question("PRVI 15-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q33 = new Question("PRVI 15-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q34 = new Question("PRVI 15-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q35 = new Question("PRVI 15-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            easylist.Add(q11);
-            easylist.Add(q12);
-            easylist.Add(q13);
-            easylist.Add(q14);
-            easylist.Add(q15);
-            mediumlist.Add(q21);
-            mediumlist.Add(q22);
-            mediumlist.Add(q23);
-            mediumlist.Add(q24);
-            mediumlist.Add(q25);
-            hardlist.Add(q31);
-            hardlist.Add(q32);
-            hardlist.Add(q33);
-            hardlist.Add(q34);
-            hardlist.Add(q35);
-            */
+         
             listBox1.SelectedIndex = 16 - CURRENT_Q;
 
-            idx = Question.rand.Next(0, 5);
-            q = easylist.ElementAt(idx);
+            //idx = Question.rand.Next(0, l1.Count);
+            //currentQuestion = easylist.ElementAt(idx);
+            currentQuestion = getQuestion();
             shuffleAnswers();
-            q.joker5050();
+            currentQuestion.joker5050();
+        }
 
+        private void playBackgroundSong(int level)
+        {
+            bg.settings.setMode("loop", true);
+
+                if (level == 1) 
+                bg.URL = "stufe_1.mp3";
+                else if(level == 2)
+                bg.URL = "stufe_2.mp3";
+                else if(level == 3)
+                bg.URL = "stufe_3.mp3";
+              
+        }
+
+        private void playAnswerSong(AnswerSongMode mode,int level)
+        {
+            answer.settings.setMode("loop", false);
+
+            if (mode == AnswerSongMode.Right)
+            {
+                if(level == 1)
+                    answer.URL = "rightanswer.mp3";
+                else if (level == 4)             
+                    answer.URL = "50_50.mp3";
+                else
+                    answer.URL = "rightanswer2.mp3";
+            }
+            else if(mode == AnswerSongMode.Wrong)
+            {
+                answer.URL = "falsch.mp3";
+            }else if(mode == AnswerSongMode.Select)
+            {
+                answer.URL = "select.mp3";
+            }
+            
 
         }
 
         public void shuffleAnswers()
         {
-            button22.Text = q.questionText;
-            button1.Text = q.getAnswerNumber(1);
-            button2.Text = q.getAnswerNumber(2);
-            button3.Text = q.getAnswerNumber(3);
-            button4.Text = q.getAnswerNumber(4);
-            q.passed = true;
+            button22.Text = currentQuestion.questionText;
+            button1.Text = currentQuestion.getAnswerNumber(1);
+            button2.Text = currentQuestion.getAnswerNumber(2);
+            button3.Text = currentQuestion.getAnswerNumber(3);
+            button4.Text = currentQuestion.getAnswerNumber(4);
+            currentQuestion.passed = true;
         }
 
 
 
         private void button1_Click(object sender, EventArgs e)
         {
-            button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot - Copy.jpg");
+            button1.BackgroundImage = Image.FromFile("SelectedVsNot - Copy.jpg");
             button1.BackgroundImageLayout = ImageLayout.Stretch;
             FinalAnswer finalANswer = new FinalAnswer();
-            if (finalANswer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (finalANswer.ShowDialog() == DialogResult.OK)
             {
                 string text = button1.Text;
                 checkAnswer(text,1);
             }
             else
             {
-                button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                button1.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
             }
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot - Copy.jpg");
+            button2.BackgroundImage = Image.FromFile("SelectedVsNot - Copy.jpg");
 
             FinalAnswer finalANswer = new FinalAnswer();
-            if (finalANswer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (finalANswer.ShowDialog() == DialogResult.OK)
             {
                 string text = button2.Text;
+                playAnswerSong(AnswerSongMode.Select, currentQuestion.level);
                 checkAnswer(text,2);
             }
             else
             {
-                button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                button2.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot - Copy.jpg");
+            button3.BackgroundImage = Image.FromFile("SelectedVsNot - Copy.jpg");
             FinalAnswer finalANswer = new FinalAnswer();
-            if (finalANswer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            if (finalANswer.ShowDialog() == DialogResult.OK)
             {
                 string text = button3.Text;
                 checkAnswer(text,3);
             }
             else
             {
-                button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                button3.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
             }
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot - Copy.jpg");
+            button4.BackgroundImage = Image.FromFile("SelectedVsNot - Copy.jpg");
             FinalAnswer finalANswer = new FinalAnswer();
-            if (finalANswer.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            
+            if (finalANswer.ShowDialog() == DialogResult.OK)
             {
                 string text = button4.Text;
                 checkAnswer(text,4);
             }
             else
             {
-                button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                button4.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
             }
         }
 
-        //sledno prasanje
+        /// <summary>
+        /// Gets the next question.
+        /// </summary>
+        /// <returns>Question
+        /// </returns>
         public Question getQuestion()
         {   
             if (CURRENT_Q <= 5)
@@ -171,11 +208,12 @@ namespace Milionarie
                 while (true)
                 {
                     idx = Question.rand.Next(0, easylist.Count);
-                    q = easylist.ElementAt(idx);
+                    currentQuestion = easylist.ElementAt(idx);
+                    currentQuestion.level = 1;
 
-                    if (q.passed == false)
+                    if (currentQuestion.passed == false)
                     {
-                        return q;
+                        return currentQuestion;
                     }
                 }
 
@@ -184,12 +222,14 @@ namespace Milionarie
             {
                 while (true)
                 {
-                    idx = Question.rand.Next(0, 5);
-                    q = mediumlist.ElementAt(idx);
+                    idx = Question.rand.Next(0, mediumlist.Count);
+                    
+                    currentQuestion = mediumlist.ElementAt(idx);
+                    currentQuestion.level = 2;
 
-                    if (q.passed == false)
+                    if (currentQuestion.passed == false)
                     {
-                        return q;
+                        return currentQuestion;
                     }
                 }
 
@@ -198,12 +238,14 @@ namespace Milionarie
             {
                 while (true)
                 {
-                    idx = Question.rand.Next(0, 5);
-                    q = hardlist.ElementAt(idx);
+                    idx = Question.rand.Next(0, hardlist.Count);
+                    
+                    currentQuestion = hardlist.ElementAt(idx);
+                    currentQuestion.level = 3;
 
-                    if (q.passed == false)
+                    if (currentQuestion.passed == false)
                     {
-                        return q;
+                        return currentQuestion;
                     }
                 }
 
@@ -214,32 +256,33 @@ namespace Milionarie
        
         public void checkAnswer(string buttonText,int whichButton)
         {
-            q.chosenAnswer = new ChosenAnswer(buttonText);
+            currentQuestion.chosenAnswer = new ChosenAnswer(buttonText);
            
-            if (q.IsAnswerRight())
+            if (currentQuestion.IsAnswerRight())
             {
-                whichBlink = whichButton;             
+                whichBlink = whichButton;
+                playAnswerSong(AnswerSongMode.Right, currentQuestion.level);             
             }
-            //ako ne e tocen selektiraniot odgovor da pocne da trepka (zeleno) tocniot odgovor
-            else {
+            
+            else { //ako ne e tocen selektiraniot odgovor da pocne da trepka (zeleno) tocniot odgovor
 
-                if (button1.Text == q.correctAnswer.correctAnswer) {
+                if (button1.Text == currentQuestion.correctAnswer.correctAnswer) {
                     whichBlink = 1;
 
                 }
                 else
-                if (button2.Text == q.correctAnswer.correctAnswer)
+                if (button2.Text == currentQuestion.correctAnswer.correctAnswer)
                 {
                     whichBlink = 2;
 
                 }
                 else
-                if(button3.Text == q.correctAnswer.correctAnswer) {
+                if(button3.Text == currentQuestion.correctAnswer.correctAnswer) {
 
                     whichBlink = 3;
                 }
                 else
-                    if (button4.Text == q.correctAnswer.correctAnswer)
+                    if (button4.Text == currentQuestion.correctAnswer.correctAnswer)
                 {
 
                     whichBlink = 4;
@@ -247,6 +290,7 @@ namespace Milionarie
 
                 
                 nextQ = false;
+                playAnswerSong(AnswerSongMode.Wrong, currentQuestion.level);
             }
 
             counter = 0;
@@ -262,37 +306,50 @@ namespace Milionarie
             string money = "";
             if (nextQ)
             {
-               // if (listBox1.SelectedIndex == 1)
-                    //money = "you won 1 000 000 $";
-
-                button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
-                button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
-                button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
-                button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                button1.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
+                button2.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
+                button3.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
+                button4.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
 
                 CURRENT_Q++;
                 if(CURRENT_Q == 16)
                 {
-                    money = "You won a million !";
+                    money = "Вие сте милионер !!!";
                     GameOver gameover = new GameOver(money);
+                    bg.URL = "winner.mp3";
                     gameover.ShowDialog();
+                    
                     return;
                 }
-                q = getQuestion();
+
+                if(CURRENT_Q == 6)
+                {
+                    answer.URL = "transition.mp3";
+                    bg.controls.stop();
+                    MessageBox.Show("Освоивте 5000 $");
+                }
+                if(CURRENT_Q == 11)
+                {
+                    answer.URL = "transition.mp3";
+                    bg.controls.stop();
+                    MessageBox.Show("Браво, освоивте 32000 $");
+                }
+
+                currentQuestion = getQuestion();
                 shuffleAnswers();
-                q.joker5050();
+                currentQuestion.joker5050();
                 listBox1.SelectedIndex = 16 - CURRENT_Q;
             }
-            //da ostane zeleno tocnoto prasanje
-            else {
+            
+            else { //da ostane zeleno tocnoto prasanje
                 if (whichBlink == 1)
-                    button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button1.BackgroundImage = Image.FromFile("Green3.jpg");
                 else if (whichBlink == 2)
-                    button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button2.BackgroundImage = Image.FromFile("Green3.jpg");
                 else if (whichBlink == 3)
-                    button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button3.BackgroundImage = Image.FromFile("Green3.jpg");
                 else
-                    button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button4.BackgroundImage = Image.FromFile("Green3.jpg");
 
                
 
@@ -306,14 +363,14 @@ namespace Milionarie
                     }
                     else if (CURRENT_Q > 5 && CURRENT_Q < 11)
                     {
-                        money += "             1000";
+                        money += "Congratz, You won 1000 $";
 
 
                     }
                     else if (CURRENT_Q <= 15) {
-                        money += "           32000";
+                        money += "Congratz, You won 32000 $";
                     }
-                        money += " $";
+                        
                 }
                 else if(listBox1.SelectedIndex == 15) {
                     money = null;
@@ -321,13 +378,35 @@ namespace Milionarie
                 }
                 
                 GameOver gameover = new GameOver(money);
+                bg.controls.stop();
                 gameover.ShowDialog();
             }
+        }
+
+        private void enableButtons()
+        {
+            button1.Enabled = true;
+            button2.Enabled = true;
+            button3.Enabled = true;
+            button4.Enabled = true;
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             listBox1.SelectedIndex = 16 - CURRENT_Q;
+            enableButtons();
+            
+            if(CURRENT_Q == 6)
+            {
+                playBackgroundSong(2);
+                timer2.Interval = 1200;
+            }
+            if(CURRENT_Q == 11)
+            {
+                playBackgroundSong(3);
+                timer2.Interval = 1200;
+            }
+            
         }
 
         //zolto selektiranje
@@ -360,22 +439,32 @@ namespace Milionarie
             if ( (int)char.GetNumericValue(button1.Name[6]) == JOCKER5050_1 || (int)char.GetNumericValue(button1.Name[6]) == JOCKER5050_2)
             {
                 button1.Text = "";
+                button1.Enabled = false;
+                currentQuestion.answerA.hideFor5050 = true;
             }
 
             if ((int)char.GetNumericValue(button2.Name[6]) == JOCKER5050_1 || (int)char.GetNumericValue(button2.Name[6]) == JOCKER5050_2)
             {
+                button2.Enabled = false;
                 button2.Text = "";
+                currentQuestion.answerB.hideFor5050 = true;
             }
 
             if ((int)char.GetNumericValue(button3.Name[6]) == JOCKER5050_1 || (int)char.GetNumericValue(button3.Name[6]) == JOCKER5050_2)
             {
                 button3.Text = "";
+                button3.Enabled = false;
+                currentQuestion.answerC.hideFor5050 = true;
             }
 
             if ((int)char.GetNumericValue(button4.Name[6]) == JOCKER5050_1 || (int)char.GetNumericValue(button4.Name[6]) == JOCKER5050_2)
             {
                 button4.Text = "";
+                button4.Enabled = false;
+                currentQuestion.answerD.hideFor5050 = true;
+
             }
+            playAnswerSong(AnswerSongMode.Right, 4);
             button11.Hide();
 
         }
@@ -385,27 +474,27 @@ namespace Milionarie
             if (blink)
             {
                 if (whichBlink == 1)
-                    button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button1.BackgroundImage = Image.FromFile("Green3.jpg");
                 else if (whichBlink == 2)
-                    button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button2.BackgroundImage = Image.FromFile("Green3.jpg");
                 else if (whichBlink == 3)
-                    button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button3.BackgroundImage = Image.FromFile("Green3.jpg");
                 else if (whichBlink == 4)
-                    button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\Green3.jpg");
+                    button4.BackgroundImage = Image.FromFile("Green3.jpg");
             }else
             {
                 if (whichBlink == 1)
-                    button1.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                    button1.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
                 else if (whichBlink == 2)
-                    button2.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                    button2.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
                 else if (whichBlink == 3)
-                    button3.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");
+                    button3.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");
                 else if (whichBlink == 4)
-                    button4.BackgroundImage = Image.FromFile("C:\\Users\\Dragan\\Desktop\\SelectedVsNot.jpg");              
+                    button4.BackgroundImage = Image.FromFile("SelectedVsNot.jpg");              
             }
 
             blink = !blink;
-            if (counter == 1)
+            if (counter == 5)
             {
               
                 timer1.Stop();
@@ -418,98 +507,91 @@ namespace Milionarie
         //povikaj publika
         private void button13_Click(object sender, EventArgs e)
         {
+            audFriend.settings.setMode("loop", false);
+            audFriend.URL = "aud.mp3";
             foreach (var series in chart1.Series)
             {
                 series.Points.Clear();
             }
-            q.audience();
-           // int[] yValues = {25,50,75,100 }; // Here y values is related to display three month values
-           // string[] xValues = { "A", "B", "C","D" };
-           // chart1.Series["Audience"].Points.DataBindY(yValues);
-
-            this.chart1.Series["Audience"].Points.AddXY("A",Question.votes[0]);
-            this.chart1.Series["Audience"].Points.AddXY("B",Question.votes[1]);
-            this.chart1.Series["Audience"].Points.AddXY("C",Question.votes[2]);
-            this.chart1.Series["Audience"].Points.AddXY("D",Question.votes[3]);
+            richTextBox1.Hide();
+            currentQuestion.audience();
+            if(!currentQuestion.answerA.hideFor5050)
+                chart1.Series["Audience"].Points.AddXY("A",Question.votes[0]);
+            if (!currentQuestion.answerB.hideFor5050)
+                chart1.Series["Audience"].Points.AddXY("B",Question.votes[1]);
+            if (!currentQuestion.answerC.hideFor5050)
+                chart1.Series["Audience"].Points.AddXY("C",Question.votes[2]);
+            if (!currentQuestion.answerD.hideFor5050)
+                chart1.Series["Audience"].Points.AddXY("D",Question.votes[3]);
             chart1.Show();
+
             button13.Hide();
         }
         //povikaj prijatel
         private void button12_Click(object sender, EventArgs e)
         {
-
-             counterTick = -5;
-           
-            richTextBox1.Text = "Calling Friend \n";
-
+            counterTick = -5;
+            richTextBox1.Text = "Ѕвони на пријател \n";
             richTextBox1.Show();
+            chart1.Hide();
             timer2.Start();
+            audFriend.settings.setMode("loop", true);
+            audFriend.URL = "friend.mp3";
             timer2.Enabled = true;
-
-
-            //String a = String.Format("{0}\n{1}\n{2}\n{3}\n{4}", q.questionText, q.answerA.answerA, q.answerB.answerB, q.answerC.answerC, q.answerD.answerD);
-            //richTextBox1.Text += a;
-           // richTextBox1.Show();
-           button12.Hide();
+            button12.Hide();
         }
 
         private void timer2_Tick(object sender, EventArgs e)
         {
             if (counterTick == -4)
             {
-                richTextBox1.Text = "Calling Friend . \n";
+                richTextBox1.Text = "Ѕвони на пријател . \n";
             }
 
             if (counterTick == -3)
             {
-                richTextBox1.Text = "Calling Friend .. \n";
+                richTextBox1.Text = "Ѕвони на пријател .. \n";
             }
             if (counterTick == -2)
             {
-                richTextBox1.Text = "Calling Friend ...\n";
+                richTextBox1.Text = "Ѕвони на пријател ...\n";
             }
 
             if (counterTick == -1)
             {
-                richTextBox1.Text = "Calling Friend \n";
+                richTextBox1.Text = "Ѕвони на пријател \n";
             }
 
 
             if (counterTick == 0)
             {
-                richTextBox1.Text = "Calling Friend . \n";
+                richTextBox1.Text = "Ѕвони на пријател . \n";
             }
 
             if (counterTick == 1)
             {
-                richTextBox1.Text = "Calling Friend .. \n";
+                richTextBox1.Text = "Ѕвони на пријател .. \n";
             }
             if (counterTick == 2)
             {
-                richTextBox1.Text = "Calling Friend ...\n";
+                richTextBox1.Text = "Ѕвони на пријател ...\n";
             }
-
-
-
-
-
-
 
             if (counterTick == 3)
             {
-                richTextBox1.Text = "Calling Friend \n";
+                richTextBox1.Text = "Ѕвони на пријател \n";
             }
           
             if (counterTick == 4)
             {
-                String a = String.Format("\nI have a question for you and I have 30 seconds.\n");
+                String a = String.Format("\nИмам прашање и 30 секунди, слушај добро\n");
                 richTextBox1.Text += a;
 
             }
 
             if (counterTick == 8)
             {
-                String a = String.Format("\n{0}\n\n", q.questionText);
+                String a = String.Format("\n{0}\n\n", currentQuestion.questionText);
                 richTextBox1.Text += a;
 
             }
@@ -534,24 +616,23 @@ namespace Milionarie
             }
 
                 if (counterTick == 16)
-            {
-
+                {
                     String a = String.Format("{0}\n\n", button4.Text);
                     richTextBox1.Text += a;
-               
-
                 }
             if (counterTick == 22) {
-                String a = q.callingFriend();
+                String a = currentQuestion.callingFriend();
                 richTextBox1.Text += a;
-
-
-                timer2.Stop();           }
-
-
-
+                audFriend.controls.stop();
+                timer2.Stop();
+            }
             else counterTick++;
 
+        }
+
+        private void Game_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

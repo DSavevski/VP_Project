@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea20 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend20 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series20 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Game));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
@@ -86,7 +87,7 @@
             // 
             // button13
             // 
-            this.button13.BackgroundImage = global::Milionarie.Properties.Resources.Screenshot_1___Copy;
+            this.button13.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button13.BackgroundImage")));
             this.button13.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button13.Location = new System.Drawing.Point(834, 18);
@@ -98,7 +99,7 @@
             // 
             // button12
             // 
-            this.button12.BackgroundImage = global::Milionarie.Properties.Resources.Screenshot_1___Copy__2_;
+            this.button12.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button12.BackgroundImage")));
             this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Location = new System.Drawing.Point(728, 18);
@@ -110,7 +111,7 @@
             // 
             // button11
             // 
-            this.button11.BackgroundImage = global::Milionarie.Properties.Resources.Screenshot_1;
+            this.button11.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button11.BackgroundImage")));
             this.button11.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button11.Location = new System.Drawing.Point(620, 18);
@@ -195,7 +196,7 @@
             // 
             // button22
             // 
-            this.button22.BackgroundImage = global::Milionarie.Properties.Resources.MilionaireBlack3aaaa;
+            this.button22.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button22.BackgroundImage")));
             this.button22.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button22.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.button22.FlatAppearance.BorderSize = 0;
@@ -211,18 +212,18 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.BackgroundImage = global::Milionarie.Properties.Resources.who_wants_to_be_millionaire_logo;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(-1, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(615, 423);
+            this.pictureBox1.Size = new System.Drawing.Size(567, 423);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // timer1
             // 
-            this.timer1.Interval = 250;
+            this.timer1.Interval = 350;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // chart1
@@ -231,18 +232,18 @@
             this.chart1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.chart1.BackImageWrapMode = System.Windows.Forms.DataVisualization.Charting.ChartImageWrapMode.Scaled;
             this.chart1.BackSecondaryColor = System.Drawing.Color.White;
-            chartArea20.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea20);
-            legend20.Name = "Legend1";
-            this.chart1.Legends.Add(legend20);
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
             this.chart1.Location = new System.Drawing.Point(51, 12);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series20.ChartArea = "ChartArea1";
-            series20.LabelForeColor = System.Drawing.Color.White;
-            series20.Legend = "Legend1";
-            series20.Name = "Audience";
-            this.chart1.Series.Add(series20);
+            series2.ChartArea = "ChartArea1";
+            series2.LabelForeColor = System.Drawing.Color.White;
+            series2.Legend = "Legend1";
+            series2.Name = "Audience";
+            this.chart1.Series.Add(series2);
             this.chart1.Size = new System.Drawing.Size(515, 397);
             this.chart1.TabIndex = 18;
             this.chart1.Text = "chart1";
@@ -293,7 +294,8 @@
             this.MaximumSize = new System.Drawing.Size(953, 742);
             this.Name = "Game";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
+            this.Text = "Millionaire";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Game_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);

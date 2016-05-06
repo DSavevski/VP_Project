@@ -15,13 +15,25 @@ namespace Milionarie
         public AnswerD answerD { get; set; }
         public CorrectAnswer correctAnswer { get; set; }
         public ChosenAnswer chosenAnswer { get; set; }
-
-        public static int[] votes = new int[4];
-
-        public bool passed;
-
-        public static Random rand = new Random();
+        /// <summary>
+        /// Which level the question belongs to.
+        /// </summary>
+        public int level;
        
+        /// <summary>
+        /// Audience votes for a certain question
+        /// </summary>
+        public static int[] votes = new int[4];
+        /// <summary>
+        /// Whether the question has passed
+        /// </summary>
+        public bool passed;
+        /// <summary>
+        /// Random object used for which field the answer text will be displayed on.
+        /// Different game, different places for each answer
+        /// </summary>
+        public static Random rand = new Random();
+
         public Question(string qt,string aa,string ab,string ac,string ad,string ca)
         {
             questionText = qt;
@@ -72,6 +84,11 @@ namespace Milionarie
             else return answerD.answerD;
         }
 
+        override public string ToString()
+        {
+            return questionText;
+        }
+
         public bool IsAnswerRight()
         {
             return chosenAnswer.chosenAnswer == correctAnswer.correctAnswer;
@@ -84,12 +101,14 @@ namespace Milionarie
         }
 
 
-        public void audience() {
+        public void audience()
+        {
             votes[0] = 0;
             votes[1] = 0;
             votes[2] = 0;
             votes[3] = 0;
-            for (int i = 0; i < 100; i++) {
+            for (int i = 0; i < 100; i++)
+            {
                 int broj = rand.Next(1, 101);
                 if (answerA.NUMBER == correctAnswer.NUMBER)
                 {
@@ -135,29 +154,23 @@ namespace Milionarie
                     else if (broj <= 100 && correctAnswer.NUMBER != answerB.NUMBER)
                         votes[answerD.NUMBER - 1]++;
                 }
-
-
             }
-
-
-
-
         }
 
-        public String callingFriend()
+        public string callingFriend()
         {
 
             int randFriend = rand.Next(1, 31);
             if (randFriend < 17)
-                return String.Format("I am sure it is {0}", correctAnswer.correctAnswer);
+                return string.Format("Сигурен сум дека е {0}", correctAnswer.correctAnswer);
             else if (randFriend < 26)
             {
-                return String.Format("I think it is {0}", correctAnswer.correctAnswer);
+                return string.Format("Мислам дека е {0}", correctAnswer.correctAnswer);
 
             }
             else {
 
-                return String.Format(" Sorry, I don't know :( ");
+                return string.Format("Извини, но не знам :( ");
 
             }
 

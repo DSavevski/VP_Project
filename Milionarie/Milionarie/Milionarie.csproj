@@ -48,6 +48,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AnswerA.cs" />
+    <Compile Include="DodadiPrasanje.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DodadiPrasanje.Designer.cs">
+      <DependentUpon>DodadiPrasanje.cs</DependentUpon>
+    </Compile>
     <Compile Include="FinalAnswer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,9 +78,24 @@
     <Compile Include="GameOver.Designer.cs">
       <DependentUpon>GameOver.cs</DependentUpon>
     </Compile>
+    <Compile Include="LogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogIn.Designer.cs">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
+    <Compile Include="Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="DodadiPrasanje.resx">
+      <DependentUpon>DodadiPrasanje.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FinalAnswer.resx">
       <DependentUpon>FinalAnswer.cs</DependentUpon>
     </EmbeddedResource>
@@ -87,6 +108,9 @@
     <EmbeddedResource Include="GameOver.resx">
       <DependentUpon>GameOver.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="LogIn.resx">
+      <DependentUpon>LogIn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -97,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,6 +217,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\YESNO2 - Copy.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\prasanja2.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\settings.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Questions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="WMPLib">
+      <Guid>{6BF52A50-394A-11D3-B153-00C04F79FAA6}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

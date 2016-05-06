@@ -12,9 +12,12 @@ namespace Milionarie
 {
     public partial class FinalAnswer : Form
     {
+        public WMPLib.WindowsMediaPlayer bg = new WMPLib.WindowsMediaPlayer();
+
         public FinalAnswer()
         {
             InitializeComponent();
+            bg.URL = "select.mp3";
         }
 
         private void button2_Click(object sender, EventArgs e)

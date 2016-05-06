@@ -7,60 +7,192 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.IO;
 namespace Milionarie
 {
     public partial class Initial : Form
     {
         public Question q;
-        List<Question> easylist;
-        List<Question> mediumlist;
-        List<Question> hardlist;
+        public  List<Question> easylist;
+        public  List<Question> mediumlist;
+        public  List<Question> hardlist;
+
+        public WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
         public Initial()
         {
             InitializeComponent();
-            q = new Question("Kolku e 2+2", "1", "2", "3", "4", "4");
+            wplayer.settings.setMode("loop", true);
+            wplayer.URL = "intro.mp3";
+            
 
             easylist = new List<Question>();
             mediumlist = new List<Question>();
-            hardlist = new List<Question>();
-
-            Question q11 = new Question("Proizvod od pcela ?", "Otok", "Med", "Mleko", "Sirenje", "Med");
-            Question q12 = new Question("PRVI 5-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q13 = new Question("PRVI 5-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q14 = new Question("PRVI 5-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q15 = new Question("PRVI 5-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q21 = new Question("PRVI 10-1", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q22 = new Question("PRVI 10-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q23 = new Question("PRVI 10-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q24 = new Question("PRVI 10-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q25 = new Question("PRVI 10-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q31 = new Question("PRVI 15-1", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q32 = new Question("PRVI 15-2", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q33 = new Question("PRVI 15-3", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q34 = new Question("PRVI 15-4", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            Question q35 = new Question("PRVI 15-5", "TOCNO", "gRESKA", "GRESKA", "greska", "TOCNO");
-            easylist.Add(q11);
-            easylist.Add(q12);
-            easylist.Add(q13);
-            easylist.Add(q14);
-            easylist.Add(q15);
-            mediumlist.Add(q21);
-            mediumlist.Add(q22);
-            mediumlist.Add(q23);
-            mediumlist.Add(q24);
-            mediumlist.Add(q25);
-            hardlist.Add(q31);
-            hardlist.Add(q32);
-            hardlist.Add(q33);
-            hardlist.Add(q34);
-            hardlist.Add(q35);
+            hardlist = new List<Question>();   
+                   
+            read();
         }
 
+       
+
+        public void read()
+        {
+            string line = "";
+            string[] parts;
+            char delimiter = '|';
+
+
+            using (StreamReader read = new StreamReader("Questions.txt"))
+
+            {   
+                while (read.EndOfStream == false)
+                {
+                    line = read.ReadLine();
+
+                    parts = line.Split(delimiter);
+                    Question question = new Question(parts[1], parts[2], parts[3], parts[4], parts[5], parts[6]);
+
+                    if (parts[0].Equals("1"))
+                    {
+                        easylist.Add(question);
+
+                    }
+                    if (parts[0].Equals("2"))
+                    {
+                        mediumlist.Add(question);
+
+                    }
+                    if (parts[0].Equals("3"))
+                    {
+                        hardlist.Add(question);
+
+                    }
+                }
+                read.Close();
+            }
+
+
+        }
         private void button1_Click(object sender, EventArgs e)
-        {   
-            Game game=new Game(easylist,mediumlist,hardlist);
+        {
+            Game game = new Game(easylist, mediumlist, hardlist);
             game.Show();
+            wplayer.controls.stop();
+            Hide();
+        }
+
+        public void write()
+        {
+
+            //StringBuilder str = new StringBuilder();
+            using (StreamWriter write = new StreamWriter("Questions.txt"))
+            {
+
+                for (int i = 0; i < easylist.Count; i++)
+                {
+                    StringBuilder str = new StringBuilder();
+                    Question a = easylist.ElementAt(i);
+                    string aa = "1|";
+                    str.Append(aa);
+                    aa = a.questionText;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerA.answerA;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerB.answerB;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerC.answerC;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerD.answerD;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.correctAnswer.correctAnswer;
+                    str.Append(aa);
+                    String aaa = str.ToString();
+                    write.WriteLine(aaa);
+                }
+
+                for (int i = 0; i < mediumlist.Count; i++)
+                {
+                    StringBuilder str = new StringBuilder();
+                    Question a = mediumlist.ElementAt(i);
+                    string aa = "2|";
+                    str.Append(aa);
+                    aa = a.questionText;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerA.answerA;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerB.answerB;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerC.answerC;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerD.answerD;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.correctAnswer.correctAnswer;
+                    str.Append(aa);
+                    String aaa = str.ToString();
+                    write.WriteLine(aaa);
+                }
+                for (int i = 0; i < hardlist.Count; i++)
+                {
+                    StringBuilder str = new StringBuilder();
+                    Question a = hardlist.ElementAt(i);
+                    string aa = "3|";
+                    str.Append(aa);
+                    aa = a.questionText;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerA.answerA;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerB.answerB;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerC.answerC;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.answerD.answerD;
+                    str.Append(aa);
+                    aa = "|";
+                    str.Append(aa);
+                    aa = a.correctAnswer.correctAnswer;
+                    str.Append(aa);
+                    String aaa = str.ToString();
+                    write.WriteLine(aaa);
+                }
+            }
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            LogIn logIn = new LogIn(this);
+            wplayer.controls.stop();
+            logIn.initial = this;
+            logIn.Show();
+
             this.Hide();
         }
     }

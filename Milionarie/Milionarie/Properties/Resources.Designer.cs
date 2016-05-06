@@ -63,6 +63,16 @@ namespace Milionarie.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap a2 {
+            get {
+                object obj = ResourceManager.GetObject("a2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Exit {
             get {
                 object obj = ResourceManager.GetObject("Exit", resourceCulture);
@@ -211,6 +221,37 @@ namespace Milionarie.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 1|Proizvod od pcela ?|Otok|Med|Mleko|Sirenje|Med
+        ///1|PRVI 5-3|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///2|PRVI 10-1|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///2|PRVI 10-2|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///2|AAA|A|B|C|D|A
+        ///3|PRVI 15-1|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///3|PRVI 15-2|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///3|PRVI 15-5|TOCNO|gRESKA|GRESKA|greska|TOCNO
+        ///.
+        /// </summary>
+        internal static string prasanja2 {
+            get {
+                return ResourceManager.GetString("prasanja2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1|Колку годишни времиња постојат ?|4|3|2|1|4
+        ///1|Која боја се користи за да се опише илегалниот пазар ?|црна|бела|жолта|црвена|црна
+        ///1|Арнолд Шварценегер ја доби првата улога во филмот ?|Демонстратор|Терминатор|Инструктор|Инвестигатор|Терминатор
+        ///1|Кој од следниве предмети глумците највеќе го посакуваат ?|Оливер|Оскар|Олифант|Осберт|Оскар
+        ///1|Во која земја очекувате да бидете поздравени со поздравот &apos;bonjour&apos; ?|Италија|Франција|Германија|Англија|Франција
+        ///1|Кој збор следи после Северна и Јужна и ги дава имиња [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Questions {
+            get {
+                return ResourceManager.GetString("Questions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap Screenshot_1 {
@@ -256,6 +297,16 @@ namespace Milionarie.Properties {
         internal static System.Drawing.Bitmap SelectedVsNot___Copy {
             get {
                 object obj = ResourceManager.GetObject("SelectedVsNot - Copy", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap settings {
+            get {
+                object obj = ResourceManager.GetObject("settings", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
