@@ -42,3 +42,8 @@ C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.Setti
 C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.GenerateResource.Cache
 C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Interop.WMPLib.dll
 C:\Users\Dragan\Desktop\project\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.ResolveComReference.cache
+C:\Users\Dragan\Desktop\VP_Project\Milionarie\Milionarie\bin\Debug\Milionarie.exe.config
+C:\Users\Dragan\Desktop\VP_Project\Milionarie\Milionarie\obj\Debug\Interop.WMPLib.dll
+C:\Users\Dragan\Desktop\VP_Project\Milionarie\Milionarie\obj\Debug\Milionarie.csproj.ResolveComReference.cache
+C:\Users\Dragan\Desktop\VP_Project\Milionarie\Milionarie\obj\Debug\Milionarie.exe
+C:\Users\Dragan\Desktop\VP_Project\Milionarie\Milionarie\obj\Debug\Milionarie.pdb
